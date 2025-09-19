@@ -11,19 +11,15 @@ func main() {
 	arquivoOrigem := "arqivoA.txt"
 	arquivoDestino := "arquivoB.txt"
 
-	// Tenta ler o arquivo de origem.
-	// O programa vai parar aqui se "arqivoA.txt" não existir.
 	conteudo, err := os.ReadFile(arquivoOrigem)
 	if err != nil {
 		log.Fatalf("Falha ao ler o arquivo de origem: %s", err)
 	}
 
-	// Escreve o conteúdo lido no arquivo de destino.
 	err = os.WriteFile(arquivoDestino, conteudo, 0644)
 	if err != nil {
 		log.Fatalf("Falha ao escrever no arquivo de destino: %s", err)
 	}
 
-	// LINHA CORRIGIDA: Exibe a mensagem de sucesso correta.
 	fmt.Println("Conteúdo copiado com sucesso de", arquivoOrigem, "para", arquivoDestino)
 }
